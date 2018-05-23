@@ -91,7 +91,7 @@ export default {
     
     methods:{
         signIn(){
-            axios.post('https://overflow-api.maxville.net/signin',{
+            axios.post('https://overflow-api.maxville.net/users/signin',{
                 email:this.email,
                 password:this.password
             }).then(response=>{
@@ -116,7 +116,7 @@ export default {
             })
         },
         register(){
-            axios.post('https://overflow-api.maxville.net/signup',{
+            axios.post('https://overflow-api.maxville.net/users/signup',{
                 email:this.email,
                 name:this.name,
                 password:this.password,
@@ -139,7 +139,7 @@ export default {
                 FB.getLoginStatus(function (response) {
                     if (response.status == 'connected') {
                         console.log(response)
-                    axios.post('https://overflow-api.maxville.net/fblogin', {}, {
+                    axios.post('https://overflow-api.maxville.net/users/fblogin', {}, {
                             headers: {
                                 fbToken: response.authResponse.accessToken
                             }

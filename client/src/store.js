@@ -34,7 +34,7 @@ export default new Vuex.Store({
       commit('searchTag', val)
     },
     getQuestions ({commit}) {
-      axios.get('http://localhost:3000/users/question/')
+      axios.get('https://overflow-api.maxville.net/users/question/')
         .then(response => {
           commit('listQuestion', response.data.result)
         })
@@ -43,7 +43,7 @@ export default new Vuex.Store({
         })
     },
     getQuestion ({ commit }, id) {
-      axios.get(`http://localhost:3000/users/question/${id}`)
+      axios.get(`https://overflow-api.maxville.net/users/question/${id}`)
         .then(response => {
           commit('selectQuestion', response.data.result)
         })
@@ -52,7 +52,7 @@ export default new Vuex.Store({
         })
     },
     getUserQuestions ({ commit }, token) {
-      axios.get(`http://localhost:3000/users/question/user`, {
+      axios.get(`https://overflow-api.maxville.net/users/question/user`, {
         headers: {
           token: localStorage.getItem('token')
         }
